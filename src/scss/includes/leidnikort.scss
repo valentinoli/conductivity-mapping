@@ -1,0 +1,30 @@
+.mapcontainer {
+  height: 100vh;
+
+  div.message {
+    margin-top: 15vh;
+
+    p {
+      text-align: center;
+      font-size: 1em;
+    }
+
+    h1.coming-soon {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+
+    @media screen and (min-width: 1000px) {
+      width: 80%;
+    }
+
+    @media screen and (max-width: 1000px) {
+      width: 88%;
+    }
+  }
+}

@@ -1,0 +1,120 @@
+
+section.maelingar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .info {
+    background: $light;
+    border-radius: 10px;
+    padding: 15px 2%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    p {
+      font-size: 1.0625em;
+      text-align: center;
+      padding: 0;
+      margin: 0;
+
+      a {
+        color: inherit;
+
+        span.glyphicon {
+          padding-left: 5px;
+        }
+      }
+    }
+  }
+
+  .map-container {
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+
+    #map {
+      height: 100%;
+      width: 100%;
+
+      .controlDiv {
+        top: 10px !important;
+      }
+
+      .controlDiv-mobile {
+        left: 10px !important;
+      }
+
+      .control:hover {
+        background-color: rgba(220, 220, 220, 0.6);
+      }
+
+      .gm-style .gm-style-iw {
+        font-size: 17px;
+      }
+    }
+  }
+
+  table {
+    thead {
+      background-color: $dark;
+    }
+
+    tbody {
+      background-color: $light;
+    }
+  }
+
+  .table-measurements > table > tbody.shift-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  td,
+  th {
+    font-family: 'PT Mono', monospace;
+    font-size: 1.0625em;
+  }
+
+  .table-hover {
+    tr.headers {
+      th {
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.2);
+        }
+      }
+
+      th.selected {
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+    }
+
+    tbody {
+      tr {
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.4);
+        }
+
+        td.invisible {
+          display: none;
+        }
+      }
+
+      tr.selected {
+        background-color: rgba(255, 255, 255, 0.6);
+      }
+    }
+  }
+
+  .cvRemark {
+    text-align: center;
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "field-strength-measurements",
+  "version": "1.0.0",
+  "description": "gagnavefur",
+  "main": "dist/app.js",
+  "private": true,
+  "engines": {
+    "node": "8.1.2"
+  },
+  "scripts": {
+    "start": "node dist/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "gulp"
+  },
+  "author": "Valentin Oliver",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "babel-preset-latest": "^6.24.1",
+    "browser-sync": "^2.18.12",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-plugin-import": "^2.6.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "^7.1.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-eslint": "^4.0.0",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-pug": "^3.3.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-stylelint": "^3.9.0",
+    "stylelint-config-standard": "^16.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "debug": "^2.6.8",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.3",
+    "morgan": "^1.8.2",
+    "mysql": "^2.13.0",
+    "pug": "^2.0.0-rc.2",
+    "serve-favicon": "^2.4.3"
+  }
+}

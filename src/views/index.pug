@@ -1,0 +1,46 @@
+extends precursor/layout
+block content
+  div.container
+    header
+      include includes/nav.pug 
+    
+    main
+      section
+        
+        .front-page-background 
+          h1 Jarðleiðniverkefnið
+        
+        .front-page-background-mobile 
+          h1 Jarðleiðniverkefnið  
+        
+        p.inngangur Fyrirliggjandi er mikið af mæligögnum sem hægt er að nýta til að fá mat á rafleiðni landsins. Þessum gögnum safnaði Sæmundur Óskarsson prófessor í rafmagns- og tölvuverkfræði við Háskóla Íslands. Nú hafa þessi gögn verið flokkuð og á þessum vef má skoða þau.
+        
+        p Rafleiðni lands eða sjávar er ráðandi um það hve vel radíóbylgjur á lágum tíðnum berast yfir yfirborðið. Nauðsynlegt er að þekkja jarðleiðnina þegar reikna þarf útbreiðslu radíóbylgna, t.d. þegar teknar eru ákvarðanir um staðsetningu senda. Jarðleiðnikort fyrir Ísland gerir kleift að segja til um móttökuskilyrði lágtíðnifjarskipta hvar sem er á landinu. Hugsanlegt er að finna fylgni milli jarðleiðni og annarra þátta, t.d. gróðurfars. Einnig er jarðleiðni notuð til þess að meta hvort vænlegt sé að leita heits vatns.
+        
+        p Í verkefninu felst umtalsvert nýnæmi, þar sem kort yfir jarðleiðni landsins er ekki til. Jarðleiðni gefur vísbendingar um jarðfræðilega eiginleika landsins. Til dæmis er mjög lítil leiðni í hrauni en leiðni í mýrum er mikil. Hugsanlegt er að bera niðurstöður þessa verkefnis saman við þær niðurstöður sem liggja fyrir úr fjarkönnun með gervitunglum og skoða samsvörun. Ef til vill er hægt að nýta niðurstöður fjarkönnunar til þess að bæta niðurstöður þessa verkefnis og fá þannig enn betri hugmynd um jarðleiðnina.
+        
+      section.saemundur
+        
+        h2 Sæmundur Óskarsson
+        
+        figure
+          img(src='img/saemundur.jpg' alt='Sæmundur Óskarsson')
+          figcaption
+            p 
+              | Sæmundur Óskarsson <br />
+              | (1930-2015)
+            
+        p Sæmundur lauk stúdentsprófi frá Menntaskólanum í Reykjavík árið&nbsp;1950. Að því loknu stundaði hann nám við Háskóla Íslands og lauk þar fyrrihlutanámi í verkfræði 1953. Hann lauk prófi í rafeindaverkfræði frá Danmarks Tekniske Højskole árið&nbsp;1956.
+            
+        p Sæmundur starfaði sem verkfræðingur hjá Póst- og símamálastofnun 1956&#8209;61. Hann stundaði ýmis störf frá 1961&#8209;62 en 1962&#8209;63 var hann verkfræðingur hjá sjóher Bandaríkjanna á Keflavíkurflugvelli. Sæmundur varð síðan deildarverkfræðingur hjá Landsíma Íslands og yfirverkfræðingur árin 1966&#8209;72. Árið&nbsp;1972 var Sæmundur skipaður prófessor við Háskóla Íslands og gegndi því starfi til 68&nbsp;ára aldurs. Sæmundur vann við frumkvöðlastarf við skipulagningu á síðarihlutanáms í verkfræði við Háskóla Íslands á árunum 1971&#8209;1972. Einnig sá hann um að ljósleiðaratæknin varð innleidd til landsins, og kenndi hann m.a. ljósleiðaratæknina við verkfræðideild Háskóla Íslands.
+            
+        p Samhliða starfi sínu sem prófessor rak Sæmundur fyrirtæki sitt Rafeindaiðjuna og framleiddi þar aðallega hleðslutæki og spennustilla, m.a. til Landsímans, orkufyrirtækja og skipa.
+            
+        p Á langri starfsævi gegndi Sæmundur margvíslegum trúnaðarstörfum, m.a. fyrir Verkfræðifélag Íslands, sat í Orðanefnd RVFÍ (Rafmagnsverkfræðingadeildar Verkfræðingafélags Íslands) allt frá 1990 til andláts og var hann að vinna að 14. bók hennar. Hann sat í stjórn skíðadeildar Ármanns, var formaður Skíðaráðs Reykjavíkur 1973&#8209;77 og formaður Skíðasambands Íslands 1978-80.
+            
+        p Á árunum 1991&#8209;1998 ferðaðist Sæmundur vítt og breitt um landið til að mæla móttökustyrk frá 60 radíósendum, sem flestir eru staðsettir hér á landi, en einnig í Færeyjum og Englandi. Þeir senda flestir út á lágri tíðni en einnig á millitíðnisviði, eða frá 50 kHz til 1.530 kHz. Um er að ræða yfir 1.300 mælistaði og 19.000 mælingar, sem tókst að fækka í um 15.250. Sæmundar er minnst fyrir mikilvægt frumkvæði og framlag til verkefnisins og hefur hann sannlega alið þá von í brjósti að því yrði haldið áfram af eljusemi og kostgæfni, að það bæri ávöxt fyrir framtíðarkynslóðir.
+    
+    include includes/footer.pug
+      
+  include includes/scripts.pug
+  script(src='js/index.js')
