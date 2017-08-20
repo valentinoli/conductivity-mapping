@@ -113,9 +113,10 @@ function post(params) {
 function sortTable(table, col, reverse) {
   var tb = table.tBodies[0];
   var tr = Array.prototype.slice.call(tb.rows, 0);
+  console.log(tr);
   var rev = -(+reverse || -1);
   // Raðað sendatöflu
-  if (col === 0) {
+  if (isNaN(tr[0].cells[col].innerHTML) && col === 0) {
     // athugað hvort raða þurfi eftir fyrsta dálki í sendatöflu eða mælingatöflu (auðkenni)
     tr.sort(function (a, b) {
       return rev * a.cells[col].textContent.localeCompare(b.cells[col].textContent);

@@ -111,9 +111,10 @@ function post(params) {
 function sortTable(table, col, reverse) {
   const tb = table.tBodies[0];
   const tr = Array.prototype.slice.call(tb.rows, 0);
+  console.log(tr);
   const rev = -((+reverse) || -1);
   // Raðað sendatöflu
-  if (col === 0) {
+  if (isNaN(tr[0].cells[col].innerHTML) && col === 0) {
     // athugað hvort raða þurfi eftir fyrsta dálki í sendatöflu eða mælingatöflu (auðkenni)
     tr.sort((a, b) => rev * (
       a.cells[col].textContent
