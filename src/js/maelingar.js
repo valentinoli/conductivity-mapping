@@ -111,16 +111,14 @@ function post(params) {
 function sortTable(table, col, reverse) {
   const tb = table.tBodies[0];
   const tr = Array.prototype.slice.call(tb.rows, 0);
-  console.log(tr);
   const rev = -((+reverse) || -1);
-  // Raðað sendatöflu
   if (isNaN(tr[0].cells[col].innerHTML) && col === 0) {
-    // athugað hvort raða þurfi eftir fyrsta dálki í sendatöflu eða mælingatöflu (auðkenni)
+    // athugað hvort raða þurfi eftir fyrsta dálki í sendatöflu (texti)
     tr.sort((a, b) => rev * (
       a.cells[col].textContent
         .localeCompare(b.cells[col].textContent)
     ));
-  } else {
+  } else { // annars innihalda dálkarnir talnagildi
     tr.sort((a, b) => rev * (
       parseFloat(a.cells[col].textContent || '-1')
         - parseFloat(b.cells[col].textContent || '-1')
@@ -511,21 +509,22 @@ function tableSwitch() {
 }
 
 // Fylgist með því hvenær notandi er með shift takkann niðri
-// og ef hann er niðri, þá er notandaval (user-selection) gert óvirkt.
-function shiftKeyListeners() {
+// og ef hann er niðri, þá er notandaval (user-selection) gert óvirkt
+// á mælingatöflu
+function shiftKeyListeners(selector) {
   // https://stackoverflow.com/questions/18645216/how-can-i-disable-text-selection-using-shift-without-disabling-all-text-selectio
-  const body = document.querySelector('.table-measurements > table > tbody');
+  const table = document.querySelector(selector);
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Shift') {
-      body.classList.toggle('shift-select', true);
+      table.classList.toggle('shift-select', true);
     }
-  });
+  }); 
   document.addEventListener('keyup', (e) => {
     if (e.key === 'Shift') {
-      body.classList.toggle('shift-select', false);
+      table.classList.toggle('shift-select', false);
     }
   });
-  body.addEventListener('selectstart', (e) => {
+  table.addEventListener('selectstart', (e) => {
     e.preventDefault();
     return false;
   });
@@ -693,7 +692,10 @@ function initMap() {
   rowListeners();
   // Bætum öllum sendum við kortið
   addTransmitters();
-
+  
+  // gerum shift óvirkan í sendatöflu
+  shiftKeyListeners('.table-transmitters > table');
+  
   /*
    *  Ef einhver sendir hefur verið valinn, þá sýnum við mælingarnar frá honum,
    *  bætum mælistöðum og sendinum sjálfum við kortið, geymum athugasemd um
@@ -702,7 +704,6 @@ function initMap() {
    *  einnig við sýnar-stýritakka og festum efst á kortið.
    */
   if (typeof transmitter !== 'undefined' && transmitter.length > 0) {
-    shiftKeyListeners();
     transmitterView = false;
     addTransmitter();
     addLocations();
@@ -722,5 +723,7 @@ function initMap() {
       controlDiv.classList.add('controlDiv-mobile');
       map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(controlDiv);
     }
+    // gerum shift óvirkan í mælingatöflu
+    shiftKeyListeners('.table-measurements > table');
   }
 }

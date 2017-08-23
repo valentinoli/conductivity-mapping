@@ -5,8 +5,8 @@ section.maelingar {
   justify-content: center;
 
   .info {
-    background: $light;
-    border-radius: 10px;
+    background: $dark;
+    border-radius: 5px;
     padding: 15px 2%;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -16,6 +16,7 @@ section.maelingar {
       text-align: center;
       padding: 0;
       margin: 0;
+      color: #fff;
 
       a {
         color: inherit;
@@ -65,7 +66,7 @@ section.maelingar {
     }
   }
 
-  .table-measurements > table > tbody.shift-select {
+  .table-measurements > table.shift-select {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -77,6 +78,10 @@ section.maelingar {
   th {
     font-family: 'PT Mono', monospace;
     font-size: 1.0625em;
+  }
+  
+  th {
+    color: #fff;
   }
 
   .table-hover {
@@ -99,7 +104,7 @@ section.maelingar {
         cursor: pointer;
 
         &:hover {
-          background-color: rgba(255, 255, 255, 0.4);
+          background-color: rgba(255, 255, 255, 0.60);
         }
 
         td.invisible {

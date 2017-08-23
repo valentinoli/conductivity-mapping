@@ -4,8 +4,8 @@ $nav-color: #fff;
 $header-color: #eb7125;
 $margin-color: rgb(90, 91, 94);
 $text-color: #6b6b6b;
-$light: rgba(90, 91, 94, 0.25);
-$dark: rgba(90, 91, 94, 0.35);
+$light: rgba(0, 0, 0, 0.2);
+$dark: rgba(0, 0, 0, 0.45);
 $hover: rgba(255, 255, 255, 0.4);
 $nav-size: 2rem;
 $header-height: 75px;
@@ -158,9 +158,6 @@ body {
             align-items: center;
             z-index: 5;
             height: calc(100vh - #{$header-height});
-            border-top-style: solid;
-            border-color: $margin-color;
-            border-width: 5px;
             position: absolute;
             width: 100%;
             background: $margin-color;
@@ -168,14 +165,13 @@ body {
             transition: transform 200ms ease-out;
 
             figure {
-              //position: fixed;
-              //top: -$header-height;
               display: none;
             }
 
             ul {
               flex-direction: column;
               align-items: center;
+              padding-bottom: 30px;
 
               li {
                 width: 100%;
@@ -202,7 +198,7 @@ body {
   span.hamburger-bars {
     transition: 0.25s ease-in-out;
     display: block;
-    background: #fff;
+    background: #fafafa;
   }
 
   .menu-toggle {
