@@ -6,6 +6,7 @@ let currentTrmMarker;
 let polyline = null;
 let transmitterView = true;
 let lastSelectedRow;
+let maxStrength = 0;
 
 const locMarkers = [];
 const trmMarkers = [];
@@ -47,6 +48,7 @@ function addMarker(feature) {
       labelOrigin: new google.maps.Point(size / 2, size + 12),
     },
     label: null,
+    color: feature.color || undefined,
     line: feature.line || undefined,
     selected: feature.selected || false,
     map,
@@ -54,10 +56,10 @@ function addMarker(feature) {
 }
 
 // Býr til línu frá merkimiða að sendi
-function createPolyline(coordinates) {
+function createPolyline(coord, color) {
   return new google.maps.Polyline({
-    path: coordinates,
-    strokeColor: '#263beb', // '#119977',
+    path: coord,
+    strokeColor: color,
     strokeOpacity: 0.8,
     strokeWeight: 1.75,
   });
@@ -311,6 +313,23 @@ function addTransmitters() {
   }
 }
 
+// Velur viðeigandi lit á polyline mælingar
+// í hlutfalli við styrkinn
+function generateLineColor(strength) {
+  let color = '#';
+  const red = Math.floor((254 - maxStrength * 1.2) + strength * 1.2).toString(16);
+  if (red.length === 1) {
+    color = `${color}0`;
+  }
+  color = `${color}${red}`;
+  const green = Math.floor(strength).toString(16);
+  if (green.length === 1) {
+    color = `${color}0`;
+  }
+  color = `${color}${green}00`;
+  return color;
+}
+
 // Setur atburðarhandfang fyrir músarsmell á mælingarmerkimiða
 function addLocClickListener(marker, i) {
   google.maps.event.addListener(marker, 'click', () => {
@@ -324,7 +343,7 @@ function addLocClickListener(marker, i) {
 // Setur atburðarhandfang fyrir 'mouseover' á mælingarmerkimiða
 function addLocMouseoverListener(marker, coordinates) {
   google.maps.event.addListener(marker, 'mouseover', () => {
-    polyline = createPolyline(coordinates);
+    polyline = createPolyline(coordinates, marker.color);
     polyline.setMap(map);
     if (!marker.selected) setLocIcon(marker, 'selectedLocation');
   });
@@ -346,8 +365,18 @@ function addLocMouseoutListener(marker) {
 // Setur mælingar á kortið, merkimiða og atburðarhandföng fyrir þá
 function addLocations() {
   let marker;
+  // finnum hæstu mælinguna til að nota sem viðmið fyrir lit
+  for (let i = 0; i < measurements.length; i++) {
+    if (measurements[i].svidstyrkur > maxStrength) {
+      maxStrength = measurements[i].svidstyrkur;
+    }
+  }
+
   for (let i = 0; i < measurements.length; i++) {
     const loc = measurements[i];
+
+    const color = generateLineColor(loc.svidstyrkur);
+
     const location = decimalSeparatorReplaceLoc(loc);
 
     let title = '';
@@ -368,7 +397,8 @@ function addLocations() {
       position: new google.maps.LatLng(location.breidd, location.lengd),
       type: 'location',
       title,
-      line: createPolyline(coordinates),
+      color,
+      line: createPolyline(coordinates, color),
       selected: false,
     };
 
@@ -518,7 +548,7 @@ function shiftKeyListeners(selector) {
     if (e.key === 'Shift') {
       table.classList.toggle('shift-select', true);
     }
-  }); 
+  });
   document.addEventListener('keyup', (e) => {
     if (e.key === 'Shift') {
       table.classList.toggle('shift-select', false);
@@ -692,10 +722,10 @@ function initMap() {
   rowListeners();
   // Bætum öllum sendum við kortið
   addTransmitters();
-  
+
   // gerum shift óvirkan í sendatöflu
   shiftKeyListeners('.table-transmitters > table');
-  
+
   /*
    *  Ef einhver sendir hefur verið valinn, þá sýnum við mælingarnar frá honum,
    *  bætum mælistöðum og sendinum sjálfum við kortið, geymum athugasemd um

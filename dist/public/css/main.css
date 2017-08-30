@@ -68,7 +68,7 @@ body {
                 font-size: 2rem;
                 padding: 0 3.5%; } }
             body .container header nav .nav-container ul li:hover {
-              background: rgba(255, 255, 255, 0.4); }
+              background: rgba(255, 255, 255, 0.25); }
             body .container header nav .nav-container ul li a {
               text-decoration: none;
               color: #fff;
@@ -78,7 +78,7 @@ body {
           body .container header nav .nav-container ul li.selected {
             background: rgba(255, 255, 255, 0.2); }
             body .container header nav .nav-container ul li.selected:hover {
-              background: rgba(255, 255, 255, 0.4); }
+              background: rgba(255, 255, 255, 0.25); }
     body .container main {
       margin-bottom: 25px; }
     body .container footer {
@@ -229,8 +229,8 @@ section.maelingar {
   flex-direction: column;
   justify-content: center; }
   section.maelingar .info {
-    background: rgba(0, 0, 0, 0.45);
-    border-radius: 5px;
+    border: 3px solid rgba(0, 0, 0, 0.225);
+    border-radius: 4px;
     padding: 15px 2%;
     margin-top: 20px;
     margin-bottom: 20px; }
@@ -238,8 +238,7 @@ section.maelingar {
       font-size: 1.0625em;
       text-align: center;
       padding: 0;
-      margin: 0;
-      color: #fff; }
+      margin: 0; }
       section.maelingar .info p a {
         color: inherit; }
         section.maelingar .info p a span.glyphicon {
@@ -261,9 +260,9 @@ section.maelingar {
       section.maelingar .map-container #map .gm-style .gm-style-iw {
         font-size: 17px; }
   section.maelingar table thead {
-    background-color: rgba(0, 0, 0, 0.45); }
+    background-color: rgba(0, 0, 0, 0.225); }
   section.maelingar table tbody {
-    background-color: rgba(0, 0, 0, 0.2); }
+    background-color: rgba(0, 0, 0, 0.15); }
   section.maelingar .table-measurements > table.shift-select {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -274,8 +273,6 @@ section.maelingar {
   section.maelingar th {
     font-family: 'PT Mono', monospace;
     font-size: 1.0625em; }
-  section.maelingar th {
-    color: #fff; }
   section.maelingar .table-hover tr.headers th {
     cursor: pointer; }
     section.maelingar .table-hover tr.headers th:hover {

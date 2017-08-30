@@ -8,6 +8,7 @@ var currentTrmMarker = void 0;
 var polyline = null;
 var transmitterView = true;
 var lastSelectedRow = void 0;
+var maxStrength = 0;
 
 var locMarkers = [];
 var trmMarkers = [];
@@ -49,6 +50,7 @@ function addMarker(feature) {
       labelOrigin: new google.maps.Point(size / 2, size + 12)
     },
     label: null,
+    color: feature.color || undefined,
     line: feature.line || undefined,
     selected: feature.selected || false,
     map: map
@@ -56,10 +58,10 @@ function addMarker(feature) {
 }
 
 // Býr til línu frá merkimiða að sendi
-function createPolyline(coordinates) {
+function createPolyline(coord, color) {
   return new google.maps.Polyline({
-    path: coordinates,
-    strokeColor: '#263beb', // '#119977',
+    path: coord,
+    strokeColor: color,
     strokeOpacity: 0.8,
     strokeWeight: 1.75
   });
@@ -322,6 +324,23 @@ function addTransmitters() {
   }
 }
 
+// Velur viðeigandi lit á polyline mælingar
+// í hlutfalli við styrkinn
+function generateLineColor(strength) {
+  var color = '#';
+  var red = Math.floor(254 - maxStrength * 1.2 + strength * 1.2).toString(16);
+  if (red.length === 1) {
+    color = color + '0';
+  }
+  color = '' + color + red;
+  var green = Math.floor(strength).toString(16);
+  if (green.length === 1) {
+    color = color + '0';
+  }
+  color = '' + color + green + '00';
+  return color;
+}
+
 // Setur atburðarhandfang fyrir músarsmell á mælingarmerkimiða
 function addLocClickListener(marker, i) {
   google.maps.event.addListener(marker, 'click', function () {
@@ -335,7 +354,7 @@ function addLocClickListener(marker, i) {
 // Setur atburðarhandfang fyrir 'mouseover' á mælingarmerkimiða
 function addLocMouseoverListener(marker, coordinates) {
   google.maps.event.addListener(marker, 'mouseover', function () {
-    polyline = createPolyline(coordinates);
+    polyline = createPolyline(coordinates, marker.color);
     polyline.setMap(map);
     if (!marker.selected) setLocIcon(marker, 'selectedLocation');
   });
@@ -357,8 +376,18 @@ function addLocMouseoutListener(marker) {
 // Setur mælingar á kortið, merkimiða og atburðarhandföng fyrir þá
 function addLocations() {
   var marker = void 0;
+  // finnum hæstu mælinguna til að nota sem viðmið fyrir lit
   for (var i = 0; i < measurements.length; i++) {
-    var loc = measurements[i];
+    if (measurements[i].svidstyrkur > maxStrength) {
+      maxStrength = measurements[i].svidstyrkur;
+    }
+  }
+
+  for (var _i = 0; _i < measurements.length; _i++) {
+    var loc = measurements[_i];
+
+    var color = generateLineColor(loc.svidstyrkur);
+
     var location = decimalSeparatorReplaceLoc(loc);
 
     var title = '';
@@ -376,14 +405,15 @@ function addLocations() {
       position: new google.maps.LatLng(location.breidd, location.lengd),
       type: 'location',
       title: title,
-      line: createPolyline(coordinates),
+      color: color,
+      line: createPolyline(coordinates, color),
       selected: false
     };
 
     marker = addMarker(locationFeatures);
     locMarkers.push(marker);
 
-    addLocClickListener(marker, i);
+    addLocClickListener(marker, _i);
     addLocMouseoverListener(marker, coordinates);
     addLocMouseoutListener(marker);
   }
@@ -436,15 +466,15 @@ function rowListeners() {
   // Sendatafla
   var trows = document.querySelectorAll('.table-transmitters > table > tbody > tr');
 
-  var _loop3 = function _loop3(_i) {
-    trows[_i].addEventListener('click', function () {
+  var _loop3 = function _loop3(_i2) {
+    trows[_i2].addEventListener('click', function () {
       // framköllum post-beiðni til vefþjóns og veljum samsvarandi röð í töflu
-      post({ transmitter: trows[_i].className });
+      post({ transmitter: trows[_i2].className });
     });
   };
 
-  for (var _i = 0; _i < trows.length; _i++) {
-    _loop3(_i);
+  for (var _i2 = 0; _i2 < trows.length; _i2++) {
+    _loop3(_i2);
   }
 }
 

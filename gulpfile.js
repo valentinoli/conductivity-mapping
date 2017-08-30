@@ -21,7 +21,7 @@ gulp.task('nodemon', (callback) => {
   });
 });
 
-gulp.task('default', ['nodemon', 'watch'], () => {
+gulp.task('default', ['nodemon'], () => {
 
   browserSync.init({
     proxy: 'localhost:3000',
