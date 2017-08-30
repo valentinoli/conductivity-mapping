@@ -62,7 +62,7 @@ block content
                     th(scope='col')= header
               each t in transmitters 
                 tr(class=`${t.id}`) 
-                  - var tds = [t.stadur + ' [' + t.id + ']', t.breidd.toFixed(2), t.lengd.toFixed(2), t.tidni.toFixed(1), '', t.fjoldi];
+                  - var tds = [t.stadur + ' [' + t.id + ']', t.breidd.toFixed(2), t.lengd.toFixed(2), t.tidni.toFixed(0), '', t.fjoldi];
                   - if (t.dBk !== null) {
                   -   if (t.dBk >= 10 || t.dBk <= -10) tds[4] = tds[4] + t.dBk.toFixed(1);
                   -   else tds[4] += t.dBk.toFixed(2);
