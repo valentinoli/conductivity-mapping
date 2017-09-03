@@ -21,7 +21,7 @@ gulp.task('nodemon', (callback) => {
   });
 });
 
-gulp.task('default', ['nodemon'], () => {
+gulp.task('run', ['nodemon'], () => {
 
   browserSync.init({
     proxy: 'localhost:3000',
@@ -50,14 +50,13 @@ gulp.task('babel-root', () => {
 // sass þýðir .scss yfir í .css
 gulp.task('sass', () => {
   return gulp.src('./src/scss/*.scss')
-  .pipe(sass().on('error', sass.logError))
+  .pipe(sass( { outputStyle: 'expanded', } ).on('error', sass.logError))
   .pipe(gulp.dest('./dist/public/css'));
 });
 
 // views þýðir .pug yfir í .html
 gulp.task('views', () => {
   return gulp.src('./src/views/**/*.pug')
-  //.pipe(pug( {pretty: true} ))
   .pipe(gulp.dest('./dist/views'));
 });
 
@@ -89,4 +88,5 @@ gulp.task('lint-sass', () => {
 
 gulp.task('lint', ['lint-sass', 'lint-javascript']);
 gulp.task('babel', ['babel-public', 'babel-root']);
-gulp.task('pipe', ['sass', 'babel', 'views']);
+gulp.task('transpile', ['sass', 'babel', 'views']);
+gulp.task('default', ['run']);
