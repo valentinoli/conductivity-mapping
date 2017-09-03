@@ -21,23 +21,32 @@ https://www.npmjs.com/
 
 * Sannreynið að þið hafið aðgang að Node.js og NPM
 
-`% node -v` 
+```
+% node -v
+```
 
-`% npm -v`
+```
+% npm -v
+```
 
 * Sækið pakkana frá NPM sem skilgreindir eru í package.json
 
-´% npm install`
+```
+% npm install
+```
 
 ------------------------------
 
 Nú má kveikja á vefþjóninum og opna síðuna í vafra með
 
-`% gulp run`
+```
+% gulp run
+```
 
 eða bara
-
-`% gulp`
+```
+% gulp
+```
 
 Þetta kveikir á vefþjóninum og vafrasamstillingu samtímis.
 
@@ -49,6 +58,8 @@ Vefþjónninn sjálfur er keyrður á aðgangstengi 3000.
 
 Opnið annan skipanaglugga og keyrið
 
-`% gulp watch`
+```
+% gulp watch
+```
 
 til að fylgjast með skrám í \src (upprunalegum skrám)
