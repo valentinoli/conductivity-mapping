@@ -1,7 +1,6 @@
 # Jarðleiðniverkefnið
-======
-## Kortlagning á jarðleiðni Íslands
-## Mapping of ground conductivity in Iceland
+
+Kortlagning á jarðleiðni Íslands - Mapping of ground conductivity in Iceland
 
 Valentin Oliver Loftsson
 
