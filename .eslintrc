@@ -1,0 +1,17 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "rules": {
+    "no-plusplus": [ 
+      "error", { "allowForLoopAfterthoughts": true }
+    ],
+    "no-unused-vars": [
+      "error", { "varsIgnorePattern": "init" }
+    ]
+  },
+  "env": {
+    "browser": true
+  },
+  "globals": {},
+  "plugins": []
+}

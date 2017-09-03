@@ -1,0 +1,14 @@
+extends precursor/layout
+block content
+  div.container.mapcontainer
+    header
+      include includes/nav.pug 
+    
+    main
+      section
+        p.message Hér verður jarðleiðnikortið birt þegar útreikningum og kortlagningu er lokið
+        
+    include includes/footer.pug
+      
+  include includes/scripts.pug
+  script(src='js/leidnikort.js')

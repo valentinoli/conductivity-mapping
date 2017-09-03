@@ -1,0 +1,64 @@
+
+@media screen and (min-width: 1000px) {
+  .front-page-background {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0 -15px 35px -15px;
+    height: 105vh;
+    display: flex;
+    justify-content: center;
+
+    h1 {
+      margin: 150px 0 0;
+      letter-spacing: 6px;
+      color: #fefefe;
+    }
+  }
+
+  .front-page-background-mobile {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .front-page-background {
+    display: none;
+  }
+
+  .front-page-background-mobile {
+    h1 {
+      letter-spacing: 3px;
+    }
+  }
+}
+
+main {
+  p.inngangur {
+    font-size: 1.05em;
+    line-height: 1.6;
+    font-weight: 200;
+    margin: 15px 10% 25px;
+  }
+
+  section.saemundur {
+    figure {
+      float: right;
+      margin-left: 15px;
+      max-width: 220px;
+      width: 30%;
+
+      img {
+        width: 100%;
+        -webkit-filter: sepia(30%);
+        filter: sepia(30%);
+      }
+
+      figcaption > p {
+        margin-top: 5px;
+        font-size: 0.75em;
+        text-align: center;
+      }
+    }
+  }
+}

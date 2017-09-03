@@ -1,0 +1,19 @@
+.mapcontainer {
+  padding-bottom: 100px;
+  min-height: 110vh;
+
+  p.message {
+    margin-top: 20vh;
+    text-align: center;
+    font-size: 1.25em;
+    line-height: 1.6;
+  }
+
+  footer {
+    position: absolute;
+    right: 0;
+    bottom: -20vh;
+    left: 0;
+    height: 110px;
+  }
+}
