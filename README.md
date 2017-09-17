@@ -1,10 +1,10 @@
-# Jarðleiðniverkefnið - Ground Conductivity Project
+# Jarðleiðniverkefnið
 
-Mapping of ground conductivity in Iceland
+Kortlagning á jarðleiðni Íslands - Mapping of ground conductivity in Iceland
 
 Valentin Oliver Loftsson
 
-August 2017
+ágúst 2017
 
 ### Guidelines for running app on local machine and making changes to the Heroku app
 
@@ -12,14 +12,29 @@ Install [Heroku](https://devcenter.heroku.com/articles/getting-started-with-node
 
 Install [Node.js and NPM](https://nodejs.org/en/download/)
 
-Open command line and verify you have installed Node.js and NPM properly
+Open command line and verify you have installed everything
 
 ```
+% heroku -v
 % npm -v
 % node -v
 ```
 
-* Install packages from NPM defined in package.json
+Log in to Heroku with provided credentials
+
+```
+% heroku login
+```
+
+Clone the existing heroku application
+
+```
+% heroku git:clone -a jardleidni
+```
+
+Open the command line in the application's directory
+
+Install packages from NPM defined in package.json
 
 ```
 % npm install
@@ -27,22 +42,18 @@ Open command line and verify you have installed Node.js and NPM properly
 
 ------------------------------
 
-Now you can turn on the web server.
+Now you can turn on the local web server and set up a development environment
 
 Open the command line in the application's directory and run
 
 
 ```
-% gulp run
-```
-
-or
-
-```
 % gulp
 ```
 
-Browser-sync runs on a proxy server and watches files in the \dist directory and fires when it detects changes
+This concurrently runs the web server and browser-sync
+
+Browser-sync watches files in the \dist directory and fires when it detects any changes
 
 Open another command line window and run
 
@@ -52,20 +63,26 @@ Open another command line window and run
 
 to watch files in the \src directory (source-files)
 
-### Guidelines for Heroku 
+------------------------------
 
-Install Heroku
+You need to make sure the remote git repository has been set before deploying your changes to Heroku
 
-Log in to Heroku with provided credentials
-
-```
-% heroku login
-```
-
-Clone existing heroku application
+Run the following to check
 
 ```
-% heroku git:clone -a jardleidni
+git remote -v
 ```
 
-Now you should be all set up for pushing
+If the remote has not been set then run
+
+```
+heroku git:remote -a jardleidni
+```
+
+Now you should be able to commit and push changes to the git repository by running
+
+```
+git add .
+git commit -m "commit message"
+git push heroku master
+```
