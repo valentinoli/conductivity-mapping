@@ -1,19 +1,20 @@
 {
-  "name": "Jarðleiðniverkefnið",
+  "name": "ground-conductivity-iceland",
   "version": "1.0.0",
-  "description": "gagnavefur og jarðleiðnikort",
+  "description": "field strength measurements and conductivity map",
   "main": "dist/app.js",
   "private": true,
-  "engines": {
-    "node": "8.1.2"
-  },
+  "license": "ISC",
   "scripts": {
     "start": "node dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "gulp": "gulp"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/valentinoli/conductivity-mapping.git"
+  },
   "author": "Valentin Oliver",
-  "license": "ISC",
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "babel-preset-latest": "^6.24.1",

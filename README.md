@@ -6,11 +6,11 @@ Valentin Oliver Loftsson
 
 ágúst 2017
 
-### Guidelines for running app on local machine
+### Guidelines for running app on local machine and making changes to the Heroku app
 
-* Clone the GitHub Repository
+Install [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction)
 
-* Install [Node.js and NPM](https://nodejs.org/en/download/)
+Install [Node.js and NPM](https://nodejs.org/en/download/)
 
 Open command line and verify you have installed Node.js and NPM properly
 
@@ -51,3 +51,21 @@ Open another command line window and run
 ```
 
 to watch files in the \src directory (source-files)
+
+### Guidelines for Heroku 
+
+Install Heroku
+
+Log in to Heroku with provided credentials
+
+```
+% heroku login
+```
+
+Clone existing heroku application
+
+```
+% heroku git:clone -a jardleidni
+```
+
+Now you should be all set up for pushing
