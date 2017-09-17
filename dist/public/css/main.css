@@ -39,9 +39,6 @@ body {
 body .container {
   background: #fff;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 @media screen and (min-width: 1000px) {
@@ -52,7 +49,7 @@ body .container {
 
 body .container header {
   background: #eb7125;
-  width: calc(100% + 30px);
+  margin: 0 -15px;
   z-index: 10;
 }
 
@@ -122,6 +119,7 @@ body .container main {
 
 body .container footer {
   background-color: #5a5b5e;
+  width: calc(100% + 30px);
   margin: 0 -15px;
   padding: 25px 0;
   display: flex;
@@ -139,6 +137,9 @@ body .container footer img {
   }
   body .container {
     width: 100%;
+  }
+  body .container main {
+    margin-top: calc(75px + 30px);
   }
   body .container header {
     position: fixed;
