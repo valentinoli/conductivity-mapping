@@ -1,10 +1,10 @@
-# Jarðleiðniverkefnið
+# Jarðleiðniverkefnið - Ground Conductivity Project
 
-Kortlagning á jarðleiðni Íslands - Mapping of ground conductivity in Iceland
+Mapping of ground conductivity in Iceland
 
 Valentin Oliver Loftsson
 
-ágúst 2017
+August 2017
 
 ### Guidelines for running app on local machine and making changes to the Heroku app
 
