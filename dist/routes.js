@@ -6,7 +6,7 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
 
-var db = process.env.DATABASE_URL;
+var db = process.env.CLEARDB_DATABASE_URL;
 
 // Route þegar notandi kemur á forsíðu
 router.get('/', function (req, res) {
