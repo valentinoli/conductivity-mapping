@@ -1,7 +1,7 @@
 {
-  "name": "field-strength-measurements",
+  "name": "Jarðleiðniverkefnið",
   "version": "1.0.0",
-  "description": "gagnavefur",
+  "description": "gagnavefur og jarðleiðnikort",
   "main": "dist/app.js",
   "private": true,
   "engines": {

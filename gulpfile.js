@@ -22,7 +22,6 @@ gulp.task('nodemon', (callback) => {
 });
 
 gulp.task('run', ['nodemon'], () => {
-
   browserSync.init({
     proxy: 'localhost:3000',
     port: 4000,
@@ -57,6 +56,7 @@ gulp.task('sass', () => {
 // views þýðir .pug yfir í .html
 gulp.task('views', () => {
   return gulp.src('./src/views/**/*.pug')
+  //.pipe(pug( {pretty: true} ))
   .pipe(gulp.dest('./dist/views'));
 });
 
