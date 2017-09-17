@@ -7,7 +7,7 @@ const sass = require('gulp-sass');
 const babel = require('gulp-babel');
 const pug = require('gulp-pug');
 
-gulp.task('nodemon', (callback) => {
+gulp.task('nodemon', (callback) => {  
   const called = false;
   return nodemon({
     script: './dist/app.js',

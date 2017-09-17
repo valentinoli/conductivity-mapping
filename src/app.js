@@ -12,7 +12,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const debug = require('debug')('server');
 
-const port = process.env.PORT;
+const port = process.env.PORT || '3000';
 /**
  * Event listener for HTTP server "error" event.
  */

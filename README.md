@@ -6,29 +6,20 @@ Valentin Oliver Loftsson
 
 ágúst 2017
 
-### Leiðbeiningar
+### Guidelines for running app on local machine
 
-* Sækið skrárnar af GitHub
+* Clone the GitHub Repository
 
-* Sækið Node.js og NPM
+* Install [Node.js and NPM](https://nodejs.org/en/download/)
 
-https://nodejs.org/en/download/
-
-https://www.npmjs.com/
-
-* Opnið skipanaglugga (command prompt) í skráasafninu
-
-* Sannreynið að þið hafið aðgang að Node.js og NPM
-
-```
-% node -v
-```
+Open command line and verify you have installed Node.js and NPM properly
 
 ```
 % npm -v
+% node -v
 ```
 
-* Sækið pakkana frá NPM sem skilgreindir eru í package.json
+* Install packages from NPM defined in package.json
 
 ```
 % npm install
@@ -36,29 +27,29 @@ https://www.npmjs.com/
 
 ------------------------------
 
-Nú má kveikja á vefþjóninum og opna síðuna í vafra með
+Now you can turn on the web server.
+
+Open the command line in the application's directory and run
+
 
 ```
 % gulp run
 ```
 
-eða bara
+or
+
 ```
 % gulp
 ```
 
-Þetta kveikir á vefþjóninum og vafrasamstillingu samtímis.
+Browser-sync watches files in the \dist directory and fires when it detects changes
 
-Vafrasamstillingin fer í gang þegar breytingar verða á skrám í \dist.
+Browser-sync is run on a proxy server.
 
-Vafrasamstillingin er keyrð á staðgengilsþjóni á aðgangstengi (port) 4000.
-
-Vefþjónninn sjálfur er keyrður á aðgangstengi 3000.
-
-Opnið annan skipanaglugga og keyrið
+Open another command line window and run
 
 ```
 % gulp watch
 ```
 
-til að fylgjast með skrám í \src (upprunalegum skrám)
+to watch files in the \src directory (source-files)
