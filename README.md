@@ -42,9 +42,7 @@ or
 % gulp
 ```
 
-Browser-sync watches files in the \dist directory and fires when it detects changes
-
-Browser-sync is run on a proxy server.
+Browser-sync runs on a proxy server and watches files in the \dist directory and fires when it detects changes
 
 Open another command line window and run
 
