@@ -1,6 +1,7 @@
 # Ground Conductivity Project
 
-Mapping of ground conductivity in Iceland
+Mapping of ground conductivity in Iceland <br>
+Web application for field strength data representation and interaction
 
 Valentin Oliver Loftsson <br>
 August 2017
