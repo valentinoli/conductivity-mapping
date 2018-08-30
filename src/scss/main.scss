@@ -129,12 +129,14 @@ body {
     }
 
     footer {
+	  color: white;
       background-color: $margin-color;
       width: calc(100% + 30px);
       margin: 0 -15px;
-      padding: 25px 0;
+      padding: 25px 20px;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+	  align-items: center;
 
       img {
         height: 60px;

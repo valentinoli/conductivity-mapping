@@ -118,12 +118,14 @@ body .container main {
 }
 
 body .container footer {
+  color: white;
   background-color: #5a5b5e;
   width: calc(100% + 30px);
   margin: 0 -15px;
-  padding: 25px 0;
+  padding: 25px 20px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
 }
 
 body .container footer img {
