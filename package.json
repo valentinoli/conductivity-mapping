@@ -24,7 +24,7 @@
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.1.0",
     "gulp": "^3.9.1",
-    "gulp-babel": "^6.1.2",
+    "gulp-babel": "^8.0.0",
     "gulp-eslint": "^4.0.0",
     "gulp-nodemon": "^2.2.1",
     "gulp-pug": "^3.3.0",
